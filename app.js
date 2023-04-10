@@ -4,6 +4,7 @@ var hbs = require("hbs");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+require("./app_api/models/db");
 
 var indexRouter = require("./app_server/routes/index");
 var usersRouter = require("./app_server/routes/users");
@@ -13,6 +14,8 @@ var contactRouter = require("./app_server/routes/contact");
 var mealsRouter = require("./app_server/routes/meals");
 var newsRouter = require("./app_server/routes/news");
 var roomsRouter = require("./app_server/routes/rooms");
+
+const apiRouter = require("./app_api/routes/index");
 
 var app = express();
 
@@ -37,6 +40,7 @@ app.use("/meals", mealsRouter);
 app.use("/news", newsRouter);
 app.use("/rooms", roomsRouter);
 app.use("/travel", travelRouter);
+app.use("/api", apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

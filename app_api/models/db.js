@@ -6,11 +6,7 @@ const readLine = require("readline");
 const connect = () => {
   setTimeout(
     () =>
-      mongoose.connect("mongodb://127.0.0.1/travlr", {
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        useUnifiedTopology: true,
-      }),
+      mongoose.connect("mongodb://127.0.0.1/travlr"),
     1000
   );
 };
